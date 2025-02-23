@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .kalp{
+        position: absolute;
+        z-index: 999;
+    }
+    .kalp::before{
+        content: "\2661";
+        content: "\2665";
+        display: inline-block;
+        font-weight: 900;
+        color: red;
+        animation: kalpp 1s ease-out forwards;
+    }
+    @keyframes kalpp{
+        to {
+            transform: scale(10);
+            opacity: 0;
+        }
+    }
+</style>
+<body>
+    
+<img src="resim.png" height="700" alt="">
+<div class="kalp"></div>
+
+<script>
+    const img = document.querySelector("img")
+    img.ondblclick = (e) => {
+        const kalp = document.createElement("div")
+        kalp.className = "kalp"
+        kalp.style.left = e.clientX + "px"
+        kalp.style.top = e.clientY + "px"
+        kalp.onanimationend = () => kalp.remove()
+        document.body.append(kalp)
+    }
+</script>
+</body>
+</html>

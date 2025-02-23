@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ornek Deneme</title>
+    <style>
+        div{
+            width: 60%;
+            height: 400px;
+            margin: 50px auto;
+            border: 2px solid red;
+        }
+        img{
+            width: 100%;
+            height: 100%;
+        }
+        section{
+            width: 30%;
+            text-align: center;
+            margin: auto;
+            /* display: flex;
+            justify-content: center; */
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <img  src="img/resim1.jpg" id="img1" alt="">
+    </div>
+    <section>
+        <button id="ileri">1 İleri Git</button>
+    <button id="geri">1 Geri Git</button>
+    <button id="rast">Rastgele Seç</button>
+    </section>
+
+
+    <script>
+        let img=document.getElementById("img1")
+        let ileri=document.getElementById("ileri")
+        let geri=document.getElementById("geri")
+        let rast=document.getElementById("rast")
+        let resimler=["resim1.jpg","resim2.jpg","resim3.jpg","resim4.jpg","resim5.jpg","resim6.jpg","resim7.jpg","resim8.jpg"]
+        let count=0
+        rast.onclick=function(){
+            let index=Math.floor(Math.random()*resimler.length)
+            console.log(resimler[index])
+            img.src=`img/${resimler[index]}`
+            count=index
+        }
+        ileri.onclick=function(){
+            count++;
+            if (count<resimler.length)
+            {
+                img.src=`img/${resimler[count]}`
+            }
+            else {
+                count=0;
+                img.src=`img/${resimler[count]}`
+            }
+        }
+        geri.onclick=function(){
+            count--;
+            if(count>=0){
+                img.src=`img/${resimler[count]}`
+            }
+            else{
+                count=resimler.length-1
+                img.src=`img/${resimler[count]}`
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Ekranı</title>
+    <style>
+        input{
+            display:block;
+            width:200px;
+            height:30px;
+            margin:auto;
+            margin-bottom:10px;
+            padding:5px 10px; 
+            border-radius:6px;
+            outline:0;
+            border:1px solid black;
+        }
+        form{
+            text-align:center;
+        }
+
+        button{
+            width:150px;
+            height:50px;
+            color:white;
+            background-color:red;
+            border-radius:15px;
+            border:0;
+            font-weight:1000;
+            letter-spacing:.6px;
+            transition:.5s;
+            text-transform:uppercase;
+        }
+        button:hover{
+            color:red;
+            background-color:transparent;
+            border:1px solid black;
+        }
+        
+    </style>
+</head>
+<body>
+    <form>
+        <input id="isim" type="text" placeholder="Kullanıcı Adı">
+        <input id="mail" type="text" placeholder="E-posta Adresi">
+        <input id="parola" type="password" placeholder="Şifre">
+        <input id="parolatekrar" type="password" placeholder="Tekrar Şifre">
+        <button id="buton" type="button">Giriş Yap</button>
+
+    </form>
+    
+    <script src="index6.js"></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+
+Kod Analizi
+Kodun işlevlerini detaylı olarak inceleyelim:
+
+1. Değişken Tanımları
+const harfler = "ABCDEFGHIJKLMNOPRSTYWZ": Bu satır, harfler adında bir sabit değişken oluşturur ve ona A'dan Z'ye tüm büyük harfleri içeren bir dize atar (Q, U ve V harfleri görsel olarak sayılarla karışabileceğinden hariç tutulmuştur). Bu dize, rastgele harfler kaynağı olarak kullanılacaktır.
+
+let interval = null: Bu satır, interval adında bir değişken tanımlar ve onu null değerine başlatır. Bu değişken daha sonra animasyonu kontrol eden bir set aralığının kimliğini saklamak için kullanılacaktır.
+
+2. changeText Fonksiyonu
+Parametreler: Fonksiyon, e adında tek bir parametre alır; bu, fare bir öğenin üzerine geldiğinde geçirilen olay nesnesini temsil eder.
+
+Yerel Değişkenler:
+
+let iteration = 0: Bu satır, iteration adında bir değişken tanımlar ve onu 0'a başlatır. Bu, metin animasyonunun ilerlemesini takip etmek için kullanılacaktır.
+const initText = e.target.innerText: Bu satır, olayı tetikleyen öğenin (e.target) ilk metin içeriğini alır ve initText sabitinde saklar.
+Önceki Aralığın Temizlenmesi:
+
+clearInterval(interval): Bu satır, öğedeki önceki herhangi bir animasyonun yeni bir animasyona başlamadan önce durdurulmasını sağlar. clearInterval fonksiyonunu interval değişkeni ile argüman olarak çağırır ve zaten çalışıyorsa animasyonu etkin bir şekilde iptal eder.
+Aralık Kurulumu:
+
+interval = setInterval(() => { ... }, 50): Bu satır, setInterval fonksiyonu kullanarak zamanlı bir aralık oluşturur. İlk argüman, her aralıkta ne olacağını tanımlayan bir anonim fonksiyondur (ok fonksiyonu). İkinci argüman 50'dir ve aralık süresini milisaniye cinsinden belirtir (50ms, yani içerideki fonksiyon her 50 milisaniyede bir yürütülecektir).
+Aralık Fonksiyonu İçinde:
+
+e.target.innerText = initText.split("").map(...): Bu satır, ilk metni (initText) split("") yöntemi ile bireysel karakterlerden oluşan bir diziye ayırır. Ardından, her karakteri dönüştürmek için map yöntemini uygular.
+(letter, i) => { ... }: Bu, map yöntemine geçirilen fonksiyondur. İki argüman alır:
+letter: İşlenen ilk metinden gelen mevcut karakter.
+i: İlk metin içinde karakterin dizini.
+if (i < iteration) { ... }: Bu koşullu ifade, geçerli karakterin dizininin (i) iteration değerinden küçük olup olmadığını kontrol eder.
+return e.target.dataset.textValue[i]: Koşul doğruysa, önceki bir animasyon döngüsü sırasında değiştirilmiş bir karaktere ulaşıldığını gösterir. Bu nedenle, bu satır, öğenin dataset.textValue özelliğinden (daha sonra açıklanacaktır) ilgili karakteri döndürür.
+Bu, animasyon sırasında önceden ortaya çıkan karakterleri etkin bir şekilde korur.
+return harfler[Math.floor(Math.random() * 22)]: Koşul yanlışsa, henüz değiştirilmemiş bir karakterle uğraştığımız anlamına gelir. Bu satır, Math.floor(Math.random() * 22) kullanarak 0 (dahil) ile 21 (hariç) arasında rastgele bir tamsayı oluşturur. Ardından, bu indeksi kullanarak harfler dizisinden (rastgele harfler içeren) rastgele bir karaktere erişir ve döndürür.
+.join(""): Tüm karakterleri (bazılarını rastgele harflerle değiştirdikten sonra), bu satır değiştirilmiş karakter dizisini join("") yöntemi ile tekrar bir dizeye birleştirir.
+Animasyonun Durdurulması:
+
+if (iteration >= e.target.dataset.textValue.length) { clearInterval(interval) }:
+Bu koşullu ifade, iteration değerinin öğenin dataset.textValue özelliğinin uzunluğuna (tüm karakterlerin sayısı) eşit olup olmadığını kontrol eder.
+clearInterval(interval): Koşul doğruysa, tüm karakterler değiştirilmiş ve animasyon tamamlanmış demektir. Bu nedenle, bu satır clearInterval fonksiyonu ile aralığı temizler ve animasyonu durdurur.
+Tekrarlama Adımı:
+
+iteration += 1 / 10:
+Bu satır, her aralık döngüsünde iteration değerini 1/10 artırır. Bu, animasyonun kademeli olarak ilerlemesini sağlar.
+3. Animasyonu Uygulama
+const animText = document.querySelectorAll(".animated-text"):
+
+Bu satır, sayfadaki .animated-text sınıfına sahip tüm öğeleri querySelectorAll kullanarak seçer. Bu öğelerin bir NodeList'ini döndürür.
+animText.forEach((element) => { ... }):
+
+Bu satır, animText NodeList'inden her öğeye sırayla erişmek için forEach yöntemini kullanır. Her yinelemede, element değişkeni, işlenen öğeyi temsil eder.
+
+element.addEventListener("mouseover", (event) => { changeText(event) }):
+
+Bu satır, her bir öğeye mouseover olayı için bir dinleyici ekler. Bu olay, fare imleci öğenin üzerine geldiğinde tetiklenir. Dinleyicinin içinde, changeText fonksiyonu tetiklenir ve event nesnesi argüman olarak geçirilir. Bu, animasyonun başlamasını sağlar.
+Genel Bakış
+Bu kod, fare ile etkileşime giren metinleri rastgele harflerle değiştirerek animasyon oluşturur. Animasyon, karakterlerin kademeli olarak değiştirildiği bir hızda gerçekleşir ve metnin tamamı değiştirildiğinde durur.
+
+Ek Notlar
+Kodda dataset.textValue özelliği kullanılıyor. Bu özellik, öğeye özel veri saklamak için HTML5'te kullanılan bir özelliktir. Bu durumda, animasyon öncesindeki metni saklamak için kullanılır.
+Kodun işleyişi ve animasyon hızı, changeText fonksiyonundaki iteration değişkenini ve setInterval fonksiyonunun ikinci argümanını (50ms) değiştirerek ayarlanabilir.

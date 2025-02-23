@@ -1,0 +1,28 @@
+{
+    "ürünler" : [
+        {
+            "name":"ürün 1",
+            "acıklama" : "ürün 1 açıklaması",
+            "img":"img/resim1.jpg",
+            "fiyat": 1000
+        },
+        {
+            "name":"ürün 2",
+            "acıklama":"ürün 2 açıklaması",
+            "img" : "img/resim2.jpg",
+            "fiyat":2000
+        },
+        {
+            "name":"ürün 3",
+            "acıklama":"ürün 3 açıklaması",
+            "img":"img/resim3.jpg",
+            "fiyat":3000
+        },
+        {
+            "name":"ürün 4",
+            "acıklama":"ürün 4 açıklaması",
+            "img":"img/resim4.jpg",
+            "fiyat":4000
+        }
+    ]
+}

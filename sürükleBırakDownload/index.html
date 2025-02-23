@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <form class="dropzoneBox">
+        <h2>Dosya Yükle</h2>
+        <p>Yüklemek İçin Sürükle Bırak</p>
+        <div class="dropzoneArea">
+            <div class="fileUploadIcon">
+                <img src="fileUploadIcon.png" alt="">
+            </div>
+            <input type="file" required id="uploadFile" name="uploadFile" accept="image/*">
+            <p class="fileInfo">Dosya Seçilmedi..</p>
+        </div>
+        <div class="dropzoneDesc">
+            <span>En fazla 25Mb dosya boyutu</span>
+        </div>
+        <div class="dropzoneActions">
+            <div class="dropzoneHelp">
+                Yardım Merkezi
+            </div>
+            <div>
+                <button type="reset">İptal</button>
+                <button type="submit" id="submitButton" download> Kaydet </button>
+            </div>
+        </div>
+    </form>
+    
+
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+.dropzoneBox{
+    border-radius: 1rem;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 36rem;
+    border: 1px solid grey;
+    width: 100%;
+    background-color: white;
+}
+
+.dropzoneBox h2 {
+    font-size: 1.4rem;
+    margin-bottom: 0.6rem;
+    color: darkslateblue;
+}
+
+.dropzoneBox p {
+    font-size: 1.15rem;
+    color: #d3d3d3;
+}
+
+.dropzoneArea{
+    padding: 1rem;
+    position: relative;
+    margin-top: 1.5rem;
+    min-height: 16rem;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 1px dashed #d4dce6;
+    border-radius: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dropzoneDesc{
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.dropzoneArea .fileInfo{
+    font-size: 1.1rem;
+}
+
+.dropzoneArea [type="file"]{
+    cursor: pointer;
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.dropzoneArea .fileUploadIcon img{
+    height: 6rem;
+    max-width: 6rem;
+    width: 100%;
+    margin-bottom: 0.5rem;
+}
+
+.dropzoneArea:hover{
+    background: #f2f7fe;
+}
+
+.dropzoneActions{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.dropzoneActions button{
+    flex-grow: 1;
+    min-height: 3rem;
+    font-size: 1.2rem;
+    border: none;
+    transition: background 0.3s ease;
+}
+
+.dropzoneHelp{
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.dropzoneActions button[type='submit'] {
+    color: #fff;
+    background: #2d59fa;
+}
+
+.dropzoneActions button[type='reset'] {
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    color: #0a090c;
+    background: #feffff;
+    cursor: pointer;
+    border: 1px solid #d4dce6;
+    transition: all 0.3s ease;
+}
+
+.dropzoneActions button[type='reset']:hover {
+    color: #2d59fa;
+    border: 1px solid #2d59fa;
+}
+
+.dropzoneActions button[type='submit'] {
+    background: #2d59fa;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    color: #f2f7fe;
+    border: none;
+    cursor: pointer;
+}
+
+.dropzoneActions button[type='submit']:hover{
+    background: #0037ff;
+}
+
+.dropzone--over{
+    border: 2px solid #2d59fa;
+    background: #f2f7fe;
+}
+
+

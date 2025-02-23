@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BodyFat</title>
+    <style>
+        form{
+            width: 300px;
+            margin: auto;
+            margin-top: 50px;
+        }
+        input,select,button{
+            display: block;
+            margin: auto;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <fieldset>
+            <legend>Vücut Kitle Endeksi Hesabı</legend>
+            <input type="text" id="yas" placeholder="Yaşınız">
+            <input type="text" id="boy" placeholder="Boyunuz(m)">
+            <input type="text" id="kilo" placeholder="Kilonuz(kg)">
+            <select id="cins">
+                <option value="b">---</option>
+                <option value="k">Kadın</option>
+                <option value="e">Erkek</option>
+            </select>
+            <button type="button" id="buton">Hesapla</button>
+            <p id="sonuc"></p>
+        </fieldset>
+    </form>
+
+    <script>
+        let button=document.getElementById("buton");
+        buton.onclick=function(){
+            let yas=Number(document.getElementById("yas").value);
+            let boy=Number(document.getElementById("boy").value);
+            let kilo=Number(document.getElementById("kilo").value);
+            let cins=document.getElementById("cins").value;
+            let sonuc=document.getElementById("sonuc");
+
+            let hesap=kilo/(boy**2);
+            hesap=hesap.toFixed(2);
+
+            if(hesap<=18.5){
+                sonuc.innerHTML="Vücut kitle endeksiniz: "+hesap+" Kilonuz düşük :|"
+            }
+
+            else if(hesap>18.5 && hesap<=24.9){
+                sonuc.innerHTML="Vücut kitle endeksiniz: "+hesap+" Kilonuz normal :)"
+            }
+            else if(hesap>24.9 && hesap<=29.9){
+                sonuc.innerHTML="Vücut kitle endeksiniz: "+hesap+" Kilonuz fazla :("
+            }
+            else if(hesap>29.9 && hesap<=40){
+                sonuc.innerHTML="Vücut kitle endeksiniz: "+hesap+" Obezsiniz :'("
+            }
+            else if(hesap>40){
+                sonuc.innerHTML="Vücut kitle endeksiniz: "+hesap+" Aşırı Obezsiniz :''("
+            }
+
+            if(cins=="e" && yas>=50){
+                sonuc.innerHTML+="<br>Bol bol yürüyüş yapmalısınız.";
+            }
+            else if(cins=="k" && yas>=60){
+                sonuc.innerHTML+="<br>Sebze tüketimini arttırmalısınız.";
+            }
+
+        }
+    </script>
+</body>
+</html>

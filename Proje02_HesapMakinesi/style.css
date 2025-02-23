@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&family=Permanent+Marker&display=swap');
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    height: 100%;
+    font-family: 'Permanent Marker', cursive;
+}
+/* Hesap Makinesi */
+table{
+    background-color: orange;
+    border: 2px solid black;
+    margin: auto;
+    margin-top: 50px;
+    text-align: center;
+    border-spacing: 10px;
+    border-radius: 20px;
+}
+
+table .btn{
+    width: 80px;
+    background-color: grey;
+    color: white;
+    line-height: 300%;
+    border-radius: 20px;
+    font-size: 150%;
+}
+table .btn:hover{
+    background-color: white;
+    color: grey;
+    cursor: pointer;
+}
+
+#islem,#gosterge{
+    padding: 3%;
+    text-align: right;
+    background-color: white;
+    border-radius: 5px;
+}
+#islem{
+    font-size: 200%;
+}
